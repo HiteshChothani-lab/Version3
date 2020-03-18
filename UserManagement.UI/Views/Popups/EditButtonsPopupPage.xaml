@@ -1,0 +1,340 @@
+﻿<UserControl
+    x:Class="UserManagement.UI.Views.EditButtonsPopupPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ctrl="clr-namespace:UserManagement.UI.CustomControls"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    d:DesignHeight="720"
+    d:DesignWidth="640"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    Background="Transparent"
+    mc:Ignorable="d">
+
+    <Grid Background="#AA000000">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="15*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="120*" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid HorizontalAlignment="Stretch"
+            VerticalAlignment="Center"
+            Grid.Row="1"
+            Grid.Column="1"
+            Background="White">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.ColumnSpan="3" Background="White">
+                <Grid HorizontalAlignment="Stretch" Margin="100,3">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <ComboBox FontSize="25" HorizontalAlignment="Stretch" Margin="0,0,10,0" FontWeight="Bold"
+                              SelectedIndex="{Binding NoteColorSelectedIndex}" SelectedValue="{Binding NoteColor}">
+                        <ComboBoxItem Name="Black">
+                            <TextBlock Foreground="Black" Text="Black"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem Name="Silver">
+                            <TextBlock Text="Silver">
+                                <TextBlock.Foreground>
+                                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF515151" Offset="0.56"/>
+                                        <GradientStop Color="#FF999EB6" Offset="0.693"/>
+                                        <GradientStop Color="#FF999EB6" Offset="0.113"/>
+                                        <GradientStop Color="Black"/>
+                                        <GradientStop Color="#FF666979" Offset="0.437"/>
+                                    </LinearGradientBrush>
+                                </TextBlock.Foreground>
+                            </TextBlock>
+                        </ComboBoxItem>
+                        <ComboBoxItem Name="White">
+                            <Grid>
+                                <TextBlock Text="White" Foreground="Black">
+                                    <TextBlock.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform />
+                                            <RotateTransform/>
+                                            <TranslateTransform X="1" Y="-1"/>
+                                        </TransformGroup>
+                                    </TextBlock.RenderTransform>
+                                </TextBlock>
+                                <TextBlock Text="White" Foreground="Black">
+                                    <TextBlock.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform />
+                                            <RotateTransform/>
+                                            <TranslateTransform X="-1" Y="1"/>
+                                        </TransformGroup>
+                                    </TextBlock.RenderTransform>
+                                </TextBlock>
+                                <TextBlock Text="White" Foreground="White"/>
+                            </Grid>
+                        </ComboBoxItem>
+                        <ComboBoxItem Name="Gray">
+                            <TextBlock Foreground="#FF4D4D4D" Text="Gray"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem Name="Navy">
+                            <TextBlock Foreground="#FF283D89" Text="Navy"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem Name="Blue">
+                            <TextBlock Foreground="#FF4C72FE" Text="Blue"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem Name="Red">
+                            <TextBlock Foreground="#FFFE4C4C" Text="Red"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem Name="Brown">
+                            <TextBlock Foreground="#FFC45307" Text="Brown"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem Name="Purple">
+                            <TextBlock Foreground="Purple" Text="Purple"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem Name="Beige">
+                            <Grid>
+                                <TextBlock Text="Beige" Foreground="Black">
+                                    <TextBlock.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform X="1" Y="1"/>
+                                        </TransformGroup>
+                                    </TextBlock.RenderTransform>
+                                </TextBlock>
+                                <TextBlock Text="Beige" Foreground="#FFFFA64D"/>
+                            </Grid>
+                        </ComboBoxItem>
+                        <ComboBoxItem Name="Green">
+                            <TextBlock Foreground="#FF7BD424" Text="Green"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem Name="Orange">
+                            <TextBlock Foreground="#FFFFA201" Text="Orange"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem Name="Yellow">
+                            <TextBlock Foreground="#FFFFD801" Text="Yellow"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem Name="Pink">
+                            <TextBlock Foreground="#FFEF65E0" Text="Pink"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem Name="Other">
+                            <TextBlock>
+                                    <Run Foreground="#FFFE4C4C">O</Run><Run Foreground="#FFFFD801">t</Run><Run Foreground="#FF7BD424">h</Run><Run Foreground="#FF283D89">e</Run><Run Foreground="Black">r</Run>
+                            </TextBlock>
+                        </ComboBoxItem>
+                    </ComboBox>
+
+                    <ctrl:CustomTextBox Grid.Column="1"
+                                        Height="40"
+                                        Placeholder="Description Here"
+                                        HorizontalAlignment="Stretch"
+                                        CustomColorFontWeight="Bold"
+                                        ControlFontSize="18"
+                                        Text="{Binding Note}"
+                                        ControlMaxLength="20"
+                                        FontColor="{Binding NoteColor.Name, Mode=TwoWay}"/>
+                </Grid>
+            </Grid>
+
+            <ToggleButton Grid.Row="1" Margin="5,5"
+                                      IsChecked="{Binding IsCheckedButtonA}"
+                                      HorizontalContentAlignment="Stretch"
+                                      Style="{StaticResource RoundToggleButtonStyle}">
+                <ToggleButton.Content>
+                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                        <Image Grid.Column="1"
+                                        MaxHeight="25"
+                                        Margin="10,0"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        RenderOptions.BitmapScalingMode="HighQuality"
+                                        Source="/UserManagement.UI;component/Assets/icon_syringe_yellow.png" />
+                        <Grid  HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Bottom"
+                                           HorizontalAlignment="Center"
+                                               FontSize="14"
+                                               Text="BUTTON "/>
+                            <TextBlock Grid.Column="1" VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                               FontSize="20"
+                                               Text="A"/>
+                        </Grid>
+                    </Grid>
+                </ToggleButton.Content>
+            </ToggleButton>
+
+            <ToggleButton Grid.Row="1" Grid.Column="1"  Margin="5,5"
+                                      IsChecked="{Binding IsCheckedButtonB}"
+                                      HorizontalContentAlignment="Stretch"
+                                      Style="{StaticResource RoundToggleButtonStyle}">
+                <ToggleButton.Content>
+                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                        <Image Grid.Column="1"
+                                        MaxHeight="25"
+                                        Margin="10,0"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        RenderOptions.BitmapScalingMode="HighQuality"
+                                        Source="/UserManagement.UI;component/Assets/wheel.png" />
+                        <Grid  HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Bottom"
+                                           HorizontalAlignment="Center"
+                                               FontSize="14"
+                                               Text="BUTTON "/>
+                            <TextBlock Grid.Column="1" VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                               FontSize="20"
+                                               Text="B"/>
+                        </Grid>
+                    </Grid>
+                </ToggleButton.Content>
+            </ToggleButton>
+
+            <ToggleButton Grid.Row="1" Grid.Column="2"  Margin="5,5"
+                                      IsChecked="{Binding IsCheckedButtonC}"
+                                      HorizontalContentAlignment="Stretch"
+                                      Style="{StaticResource RoundToggleButtonStyle}">
+                <ToggleButton.Content>
+                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                        <Image Grid.Column="1"
+                                        MaxHeight="25"
+                                        Margin="10,0"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        RenderOptions.BitmapScalingMode="HighQuality"
+                                        Source="/UserManagement.UI;component/Assets/science.png" />
+                        <Grid  HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Bottom"
+                                           HorizontalAlignment="Center"
+                                               FontSize="14"
+                                               Text="BUTTON "/>
+                            <TextBlock Grid.Column="1" VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                               FontSize="20"
+                                               Text="C"/>
+                        </Grid>
+                    </Grid>
+                </ToggleButton.Content>
+            </ToggleButton>
+
+            <Grid Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" Margin="100,0,100,0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <ToggleButton Margin="5,5"
+                                      HorizontalContentAlignment="Stretch"
+                                      IsChecked="{Binding IsCheckedINeedHelp}"
+                                      Style="{StaticResource RoundToggleButtonStyle}">
+                        <ToggleButton.Content>
+                            <Grid 
+                                      HorizontalAlignment="Center">
+                                <TextBlock VerticalAlignment="Center"
+                                               FontSize="16"
+                                               Text="I need help"
+                                               TextWrapping="Wrap" />
+                            </Grid>
+                        </ToggleButton.Content>
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Checked">
+                                <i:InvokeCommandAction Command="{Binding Path=ButtonABCheckedCommand, Mode=OneWay}"
+                                                           CommandParameter="1" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ToggleButton>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <ToggleButton Margin="5,5"
+                                      HorizontalContentAlignment="Stretch"
+                                      IsChecked="{Binding IsCheckedIAmFulfilled}"
+                                      Style="{StaticResource RoundToggleButtonStyle}">
+                        <ToggleButton.Content>
+                            <Grid 
+                                      HorizontalAlignment="Center">
+                                <TextBlock VerticalAlignment="Center"
+                                               FontSize="16"
+                                               Text="I am fulfilled"
+                                               TextWrapping="Wrap" />
+                            </Grid>
+                        </ToggleButton.Content>
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Checked">
+                                <i:InvokeCommandAction Command="{Binding Path=ButtonABCheckedCommand, Mode=OneWay}"
+                                                           CommandParameter="2" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ToggleButton>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="4"
+                          Grid.Column="0" Grid.ColumnSpan="4"
+                Margin="20,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Button
+                            Grid.Column="0"
+                            Margin="5,10,10,0"
+                            Background="#F82032"
+                            Command="{Binding CancelCommand}"
+                            Content="CANCEL"
+                            Foreground="White"
+                            Style="{StaticResource RoundButtonNoHoverStyle}" />
+
+                <Button
+                            Grid.Column="1"
+                            Margin="10,10,5,0"
+                            Background="#00167E"
+                            Command="{Binding SubmitCommand}"
+                            Content="OK"
+                            Foreground="White"
+                            Style="{StaticResource RoundButtonNoHoverStyle}" />
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
