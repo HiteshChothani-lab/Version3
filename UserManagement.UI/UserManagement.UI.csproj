@@ -139,6 +139,7 @@
     <Compile Include="Events\MoveStoreUserSubmitEvent.cs" />
     <Compile Include="Events\MoveStoreUserToArchiveSubmitEvent.cs" />
     <Compile Include="Events\NonMobileUserAddEvent.cs" />
+    <Compile Include="Events\RegisterStoreUserSubmitEvent.cs" />
     <Compile Include="ItemModels\ExpressTimeItemModel.cs" />
     <Compile Include="ItemModels\EditButtonsItemModel.cs" />
     <Compile Include="ItemModels\EditStoreUserItemModel.cs" />
@@ -150,6 +151,7 @@
     <Compile Include="ViewModels\Popups\ExpressTimePickerPopupPageViewModel.cs" />
     <Compile Include="ViewModels\Popups\EditButtonsPopupPageViewModel.cs" />
     <Compile Include="ViewModels\Popups\MoveUserPopupPageViewModel.cs" />
+    <Compile Include="ViewModels\Popups\RegisterUserPopupPageViewModel.cs" />
     <Compile Include="ViewModels\Popups\UpdateNonMobileUserPopupPageViewModel.cs" />
     <Compile Include="ViewModels\Popups\EditUserPopupPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
@@ -171,6 +173,9 @@
     </Compile>
     <Compile Include="Views\Popups\MoveUserPopupPage.xaml.cs">
       <DependentUpon>MoveUserPopupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\RegisterUserPopupPage.xaml.cs">
+      <DependentUpon>RegisterUserPopupPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Popups\UpdateNonMobileUserPopupPage.xaml.cs">
       <DependentUpon>UpdateNonMobileUserPopupPage.xaml</DependentUpon>
@@ -253,6 +258,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Popups\RegisterUserPopupPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Popups\UpdateNonMobileUserPopupPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -332,6 +341,11 @@
   <ItemGroup>
     <Resource Include="Assets\science.png" />
     <Resource Include="Assets\wheel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\oil.png" />
+    <Resource Include="Assets\service.png" />
+    <Resource Include="Assets\tire.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

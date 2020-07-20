@@ -71,9 +71,10 @@ namespace UserManagement.WebServices
             return resultContract;
         }
 
-        public async Task<DefaultResponseContract> SaveUserData(SaveUserDataRequestContract reqContract)
+        public async Task<DefaultResponseContract> SaveUserData(SaveUserDataRequestContract reqContract, bool dummy)
         {
-            string endpoint = $"save_user_data.php?" +
+            string endpoint = dummy ? $"registerDummyMobile.php?" : $"save_user_data.php?";
+            endpoint = $"{endpoint}" +
                 $"action={reqContract.Action}&" +
                 $"firstname={reqContract.FirstName}&" +
                 $"lastname={reqContract.LastName}&" +
@@ -83,9 +84,6 @@ namespace UserManagement.WebServices
                 $"btn1={reqContract.Button1}&" +
                 $"btn2={reqContract.Button2}&" +
                 $"btn3={reqContract.Button3}&" +
-                $"btn_a_b={reqContract.ButtonAB}&" +
-                $"note={reqContract.Note}&" +
-                $"noteColor={reqContract.NoteColor}&" +
                 $"orphan_status={reqContract.OrphanStatus}&" +
                 $"super_master_id={reqContract.SuperMasterId}&" +
                 $"deliver_order_status={reqContract.DeliverOrderStatus}&" +
@@ -96,14 +94,8 @@ namespace UserManagement.WebServices
                 $"city={reqContract.City}&" +
                 $"state={reqContract.State}&" +
                 $"gender={reqContract.Gender}&" +
-                $"version=3&" +
+                $"version=1&" +
                 $"dob={reqContract.DOB}";
-
-            if (!string.IsNullOrWhiteSpace(reqContract.ExpressTime))
-            {
-                endpoint += $"&reg_type=Express&" +
-                            $"express_time={reqContract.ExpressTime}";
-            }
 
             var responseTuple = await GetAsync<DefaultResponseContract>(endpoint, Config.CurrentUser.Token);
             responseTuple = await IsUserAuthorized(endpoint, responseTuple, RequestType.Get);

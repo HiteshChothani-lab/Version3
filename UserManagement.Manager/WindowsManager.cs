@@ -3,7 +3,6 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using UserManagement.Common.Constants;
-using UserManagement.Common.Converters;
 using UserManagement.Common.Enums;
 using UserManagement.Common.Utilities;
 using UserManagement.Entity;
@@ -40,14 +39,7 @@ namespace UserManagement.Manager
                 respEntity.AccessCode = reqEntity.AccessCode;
 
                 string json = JsonConvert.SerializeObject(respEntity);
-                json = CryptoEngine.Encrypt(json, Config.SymmetricKey);
-
-                using (var outputFile = new StreamWriter(Config.FilePath + "validated-user.json", false, Encoding.UTF8))
-                {
-                    outputFile.WriteLine(json);
-                }
-
-                File.SetAttributes(Config.FilePath + "validated-user.json", FileAttributes.Hidden);
+                Config.SaveUserData(json);
             }
 
             return respEntity;
@@ -68,14 +60,7 @@ namespace UserManagement.Manager
             if (respEntity.StatusCode == (int)GenericStatusValue.Success)
             {
                 string json = JsonConvert.SerializeObject(respEntity);
-                json = CryptoEngine.Encrypt(json, Config.SymmetricKey);
-
-                using (var outputFile = new StreamWriter(Config.FilePath + "master-store.json", false, Encoding.UTF8))
-                {
-                    outputFile.WriteLine(json);
-                }
-
-                File.SetAttributes(Config.FilePath + "master-store.json", FileAttributes.Hidden);
+                Config.SaveMasterDataLocal(json);
             }
 
             return respEntity;
@@ -83,17 +68,8 @@ namespace UserManagement.Manager
 
         public void Logout()
         {
-            string userPath = Config.FilePath + "validated-user.json";
-            if (File.Exists(userPath))
-            {
-                File.Delete(userPath);
-            }
-
-            string storePath = Config.FilePath + "master-store.json";
-            if (File.Exists(storePath))
-            {
-                File.Delete(storePath);
-            }
+            Config.ClearMasterData();
+            Config.ClearUserData();
         }
 
         public async Task<DefaultResponseEntity> CheckStoreUser(CheckUserRequestEntity reqEntity)
@@ -111,7 +87,7 @@ namespace UserManagement.Manager
             return respEntity;
         }
 
-        public async Task<DefaultResponseEntity> SaveUserData(SaveUserDataRequestEntity reqEntity)
+        public async Task<DefaultResponseEntity> SaveUserData(SaveUserDataRequestEntity reqEntity, bool dummy)
         {
             if (!Connectivity.IsInternetAvailable)
             {
@@ -120,7 +96,7 @@ namespace UserManagement.Manager
 
             var reqContract = Mapper.Map<SaveUserDataRequestContract>(reqEntity);
 
-            var respContract = await _windowsWebService.SaveUserData(reqContract);
+            var respContract = await _windowsWebService.SaveUserData(reqContract, dummy);
             var respEntity = Mapper.Map<DefaultResponseEntity>(respContract);
 
             return respEntity;

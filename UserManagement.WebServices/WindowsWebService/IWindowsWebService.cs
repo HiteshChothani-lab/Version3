@@ -9,7 +9,7 @@ namespace UserManagement.WebServices
         Task<ValidateUserResponseContract> ValidateUser(ValidateUserRequestContract reqContract);
 		Task<RegisterMasterStoreResponseContract> RegisterMasterStore(RegisterMasterStoreRequestContract reqContract);
         Task<DefaultResponseContract> CheckStoreUser(CheckUserRequestContract reqContract);
-        Task<DefaultResponseContract> SaveUserData(SaveUserDataRequestContract reqContract);
+        Task<DefaultResponseContract> SaveUserData(SaveUserDataRequestContract reqContract, bool Dummy);
         Task<StoreUsersResponseContract> GetStoreUsers(GetStoreUsersRequestContract reqContract);
         Task<ArchieveStoreUsersResponseContract> GetArchieveStoreUsers(GetStoreUsersRequestContract reqContract);
         Task<DefaultResponseContract> DeleteStoreUser(DeleteStoreUserRequestContract reqContract);
