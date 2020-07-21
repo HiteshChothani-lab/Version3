@@ -99,7 +99,7 @@ namespace UserManagement.Entity
             {
                 if (!string.IsNullOrWhiteSpace(this.Btn2))
                 {
-                    return "/UserManagement.UI;component/Assets/tire.png";
+                    return "/UserManagement.UI;component/Assets/oil.png";
                 }
 
                 return string.Empty;
@@ -112,7 +112,7 @@ namespace UserManagement.Entity
             {
                 if (!string.IsNullOrWhiteSpace(this.Btn3))
                 {
-                    return "/UserManagement.UI;component/Assets/oil.png";
+                    return "/UserManagement.UI;component/Assets/tire.png";
                 }
 
                 return string.Empty;

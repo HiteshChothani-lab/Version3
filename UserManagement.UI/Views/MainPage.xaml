@@ -272,7 +272,7 @@
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Left"
                                         RenderOptions.BitmapScalingMode="HighQuality"
-                                        Source="/UserManagement.UI;component/Assets/tire.png" />
+                                        Source="/UserManagement.UI;component/Assets/oil.png" />
                                 <Grid  HorizontalAlignment="Center" VerticalAlignment="Center">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
@@ -281,7 +281,7 @@
                                     <TextBlock VerticalAlignment="Bottom"
                                            HorizontalAlignment="Center"
                                                FontSize="14"
-                                               Text="TIRE CHANGE"/>
+                                               Text="OIL CHANGE"/>
                                 </Grid>
                             </Grid>
                         </ToggleButton.Content>
@@ -299,7 +299,7 @@
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Left"
                                         RenderOptions.BitmapScalingMode="HighQuality"
-                                        Source="/UserManagement.UI;component/Assets/oil.png" />
+                                        Source="/UserManagement.UI;component/Assets/tire.png" />
                                 <Grid  HorizontalAlignment="Center" VerticalAlignment="Center">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
@@ -308,7 +308,7 @@
                                     <TextBlock VerticalAlignment="Bottom"
                                            HorizontalAlignment="Center"
                                                FontSize="14"
-                                               Text="OIL CHANGE"/>
+                                               Text="TIRE CHANGE"/>
                                 </Grid>
                             </Grid>
                         </ToggleButton.Content>
