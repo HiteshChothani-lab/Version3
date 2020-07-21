@@ -479,11 +479,11 @@ namespace UserManagement.UI.ViewModels
 
             if (this.IsCheckedINeedHelp)
             {
-                reqEntity.ButtonAB = "I need help";
+                reqEntity.ButtonAB = "I will pick up";
             }
             else if (this.IsCheckedIAmFulfilled)
             {
-                reqEntity.ButtonAB = "I am fulfilled";
+                reqEntity.ButtonAB = "I need a ride";
             }
 
             SetLoaderVisibility("Adding user...");
@@ -831,7 +831,7 @@ namespace UserManagement.UI.ViewModels
 
             if (!this.IsCheckedINeedHelp && !this.IsCheckedIAmFulfilled)
             {
-                MessageBox.Show("You must make a selection for I need help or I am fulfilled.", "Required.");
+                MessageBox.Show("You must make a selection for I will pick up or I need a ride.", "Required.");
                 return;
             }
 

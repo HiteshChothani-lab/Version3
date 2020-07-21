@@ -86,7 +86,7 @@ namespace UserManagement.Entity
             {
                 if (!string.IsNullOrWhiteSpace(this.Btn1))
                 {
-                    return "/UserManagement.UI;component/Assets/icon_syringe_yellow.png";
+                    return "/UserManagement.UI;component/Assets/service.png";
                 }
 
                 return string.Empty;
@@ -99,7 +99,7 @@ namespace UserManagement.Entity
             {
                 if (!string.IsNullOrWhiteSpace(this.Btn2))
                 {
-                    return "/UserManagement.UI;component/Assets/wheel.png";
+                    return "/UserManagement.UI;component/Assets/tire.png";
                 }
 
                 return string.Empty;
@@ -112,7 +112,7 @@ namespace UserManagement.Entity
             {
                 if (!string.IsNullOrWhiteSpace(this.Btn3))
                 {
-                    return "/UserManagement.UI;component/Assets/science.png";
+                    return "/UserManagement.UI;component/Assets/oil.png";
                 }
 
                 return string.Empty;
