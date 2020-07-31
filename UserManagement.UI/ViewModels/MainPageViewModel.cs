@@ -437,16 +437,13 @@ namespace UserManagement.UI.ViewModels
             {
                 if ("0000000000".Equals(this.MobileNumber))
                 {
-                    reqEntity.Mobile = string.Empty;
                     reqEntity.OrphanStatus = 1;
                 }
                 else
                 {
-                    reqEntity.Mobile = this.MobileNumber;
                     reqEntity.OrphanStatus = 0;
                 }
-                //reqEntity.Mobile = this.MobileNumber;
-                //reqEntity.OrphanStatus = 0;
+                reqEntity.Mobile = this.MobileNumber;
                 reqEntity.PostalCode = string.Empty;
                 reqEntity.HomePhone = string.Empty;
             }

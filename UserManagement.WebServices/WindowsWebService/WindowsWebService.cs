@@ -84,6 +84,9 @@ namespace UserManagement.WebServices
                 $"btn1={reqContract.Button1}&" +
                 $"btn2={reqContract.Button2}&" +
                 $"btn3={reqContract.Button3}&" +
+                $"btn_a_b={reqContract.ButtonAB}&" +
+                $"note={reqContract.Note}&" +
+                $"noteColor={reqContract.NoteColor}&" +
                 $"orphan_status={reqContract.OrphanStatus}&" +
                 $"super_master_id={reqContract.SuperMasterId}&" +
                 $"deliver_order_status={reqContract.DeliverOrderStatus}&" +
@@ -94,8 +97,14 @@ namespace UserManagement.WebServices
                 $"city={reqContract.City}&" +
                 $"state={reqContract.State}&" +
                 $"gender={reqContract.Gender}&" +
-                $"version=1&" +
+                $"version=3&" +
                 $"dob={reqContract.DOB}";
+
+            if (!string.IsNullOrWhiteSpace(reqContract.ExpressTime))
+            {
+                endpoint += $"&reg_type=Express&" +
+                            $"express_time={reqContract.ExpressTime}";
+            }
 
             var responseTuple = await GetAsync<DefaultResponseContract>(endpoint, Config.CurrentUser.Token);
             responseTuple = await IsUserAuthorized(endpoint, responseTuple, RequestType.Get);
