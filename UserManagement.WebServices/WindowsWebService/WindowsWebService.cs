@@ -161,7 +161,10 @@ namespace UserManagement.WebServices
 
         public async Task<DefaultResponseContract> ManageUser(ManageUserRequestContract reqContract)
         {
-            string endpoint = $"manage_user.php?action=update_idr_archive&id={reqContract.Id}";
+            string endpoint = $"manage_user.php?" +
+                $"master_store_id={Config.MasterStore.StoreId}&" +
+                $"action=update_idr_archive&" +
+                $"id={reqContract.Id}";
 
             var responseTuple = await GetAsync<DefaultResponseContract>(endpoint, Config.CurrentUser.Token);
             responseTuple = await IsUserAuthorized(endpoint, responseTuple, RequestType.Get);
@@ -172,7 +175,10 @@ namespace UserManagement.WebServices
 
         public async Task<DefaultResponseContract> CheckIDRArchiveUser(ManageUserRequestContract reqContract)
         {
-            string endpoint = $"manage_user.php?action=update_idr_archive&id={reqContract.Id}";
+            string endpoint = $"manage_user.php?" +
+                $"master_store_id={Config.MasterStore.StoreId}&" +
+                $"action=update_idr_archive&" +
+                $"id={reqContract.Id}";
 
             var responseTuple = await GetAsync<DefaultResponseContract>(endpoint, Config.CurrentUser.Token);
             responseTuple = await IsUserAuthorized(endpoint, responseTuple, RequestType.Get);
@@ -183,7 +189,10 @@ namespace UserManagement.WebServices
 
         public async Task<DefaultResponseContract> CheckIDRStoreUser(ManageUserRequestContract reqContract)
         {
-            string endpoint = $"manage_user.php?action=update_idr&id={reqContract.Id}";
+            string endpoint = $"manage_user.php?" +
+                $"master_store_id={Config.MasterStore.StoreId}&" +
+                $"action=update_idr&" +
+                $"id={reqContract.Id}";
 
             var responseTuple = await GetAsync<DefaultResponseContract>(endpoint, Config.CurrentUser.Token);
             responseTuple = await IsUserAuthorized(endpoint, responseTuple, RequestType.Get);
@@ -195,6 +204,7 @@ namespace UserManagement.WebServices
         public async Task<DefaultResponseContract> DeleteArchiveUser(DeleteArchiveUserRequestContract reqContract)
         {
             string endpoint = $"delete_archive.php?" +
+                $"master_store_id={Config.MasterStore.StoreId}&" +
                 $"master_bookstore_id={reqContract.MasterStoreId}&" +
                 $"user_id={reqContract.UserId}&" +
                 $"super_master_id={reqContract.SuperMasterId}&" +
@@ -263,7 +273,8 @@ namespace UserManagement.WebServices
             string endpoint = $"manage_user.php?" +
                 $"id={reqContract.Id}&" +
                 $"user_id={reqContract.UserId}&" +
-               $"super_master_id={reqContract.SuperMasterId}&" +
+                $"master_store_id={Config.MasterStore.StoreId}&" +
+                $"super_master_id={reqContract.SuperMasterId}&" +
                 $"action={reqContract.Action}&" +
                 $"btn1={reqContract.Button1}&" +
                 $"btn2={reqContract.Button2}&" +
@@ -281,7 +292,9 @@ namespace UserManagement.WebServices
 
         public async Task<DefaultResponseContract> MoveStoreUser(MoveStoreUserRequestContract reqContract)
         {
-            string endpoint = $"manage_user.php?action=move&" +
+            string endpoint = $"manage_user.php?" +
+                $"master_store_id={Config.MasterStore.StoreId}&" +
+                $"action=move&" +
                 $"moved_pos_oid={reqContract.MovedPosOid}&" +
                 $"mid={reqContract.Mid}&" +
                 $"order_id={reqContract.OrderId}&" +
