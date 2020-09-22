@@ -79,7 +79,7 @@
                     </Grid.ColumnDefinitions>
                     <Button Margin="0,5" FontSize="12"
                         Command="{Binding DummyUserCommand}"
-                        Content="Dummy"
+                        Content="Fill in"
                         Style="{StaticResource RoundButtonStyle}" />
 
                     <Button Grid.Column="1" Padding="0" Margin="5,5" FontSize="12"
